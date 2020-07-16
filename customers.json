@@ -1,0 +1,20 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "johnson"
+    },
+    {
+      "id": 2,
+      "name": "tomson"
+    },
+    {
+      "name": "abc",
+      "id": 6
+    },
+    {
+      "name": "adfsd",
+      "id": 7
+    }
+  ]
+}

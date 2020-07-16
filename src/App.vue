@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <ul>
+      <li v-for="c in $store.state.customers" :key="c.id">
+          {{c.id}}
+          <input type="text" v-model="c.name">
+          ,<button @click="del(c)">删除</button>,
+          <button @click="update(c)">更新</button>
+      </li>
+    </ul>
+    <hr>
+    <Adder></Adder>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Adder from './components/Adder'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  data:function(){
+    return {}
+  },
+  created(){
+    this.$store.dispatch("load")
+  },
+  methods:{
+    del(c){
+      this.$store.dispatch("del",c.id)
+    },
+    update(c){
+      this.$store.dispatch("update",c)
+    }
+  },
+  components:{Adder}
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
